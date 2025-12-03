@@ -1,1 +1,1 @@
-"{\"id\": \"1\",\"description\": \"Aplicaci\u00f3n para gestionar tareas\". \"completed\": false}"
+[{"id": 1, "description": "Buy groceries", "status": "TODO"}, {"id": 2, "description": "Read a book", "status": "IN_PROGRESS"}]
