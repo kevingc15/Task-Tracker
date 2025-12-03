@@ -1,10 +1,9 @@
 import json
-from task import Task
+from task import Task, Status
 
 #TODO: Transformar json a lista de tasks
 def json_to_str(json_data):
-    tasks = json.loads(json_data)
-    return tasks
+    return json.loads(json_data)
 
 def str_to_tasks(tasks_str):
     tasks = []
@@ -12,7 +11,11 @@ def str_to_tasks(tasks_str):
         task = Task(
             id=task_dict['id'],
             _description=task_dict['description'],
-            _status=task_dict['status']
+            _status=Status[task_dict["status"]]
         )
         tasks.append(task)
     return tasks
+
+def tasks_to_json(tasks):
+    tasks_list = [task.to_dict() for task in tasks]
+    return json.dumps(tasks_list)

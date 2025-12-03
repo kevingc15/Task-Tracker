@@ -1,5 +1,5 @@
 from file_manage import get_tasks, save_tasks
-from transformate import json_to_str, str_to_tasks
+from transformate import json_to_str, str_to_tasks, tasks_to_json
 
 def read_tasks():
     data = get_tasks()
@@ -10,9 +10,10 @@ def read_tasks():
 def write_tasks(task):
     tasks = read_tasks()
     tasks.append(task)
-    data = json.dumps(tasks)
-    save_tasks(data)
-    return "Task saved successfully"
+    tasks_json = tasks_to_json(tasks)
+    save_tasks(tasks_json)
+    return save_tasks
 
-from task import Task
-print(read_tasks())
+from task import Task, Status
+task = Task(1, "Buy groceries", Status.TODO)
+print(write_tasks(task))

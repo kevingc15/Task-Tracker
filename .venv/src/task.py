@@ -2,16 +2,16 @@ from dataclasses import dataclass, field
 from enum import Enum
 import datetime as dt
 
+class Status(Enum):
+    TODO = 0
+    IN_PROGRESS = 1
+    DONE = 2
+
 @dataclass
 class Task:
-    class Status(Enum):
-        TODO = 0
-        IN_PROGRESS = 1
-        DONE = 2
-
     id: int
     _description: str
-    _status: "Task.Status"
+    _status: Status
     _createdAt: str = field(default_factory=lambda: dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     _updatedAt: str = field(default_factory=lambda: dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
@@ -46,6 +46,12 @@ class Task:
     def updatedAt(self, value):
         self._updatedAt = value
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "description": self.description,
+            "status": self.status.name,
+            "createdAt": self.createdAt,
+            "updatedAt": self.updatedAt
+        }
 
-
-    

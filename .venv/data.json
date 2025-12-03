@@ -1,1 +1,1 @@
-[{"id": 1, "description": "Buy groceries", "status": "TODO"}, {"id": 2, "description": "Read a book", "status": "IN_PROGRESS"}]
+[{"id": 1, "description": "Test", "status": "TODO", "createdAt": "2025-12-03 18:26:43", "updatedAt": "2025-12-03 18:26:43"}, {"id": 1, "description": "Buy groceries", "status": "TODO", "createdAt": "2025-12-03 18:26:43", "updatedAt": "2025-12-03 18:26:43"}]
