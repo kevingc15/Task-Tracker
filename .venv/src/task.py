@@ -12,8 +12,10 @@ class Task:
     id: int
     _description: str
     _status: Status
-    _createdAt: str = field(default_factory=lambda: dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-    _updatedAt: str = field(default_factory=lambda: dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    _createdAt: str = field(default_factory=lambda: dt.datetime.now().strftime("%d/%m/%y %H:%M:%S"))
+    _updatedAt: str = field(default_factory=lambda: dt.datetime.now().strftime("%d/%m/%y %H:%M:%S"))
+
+    def __str__(self): return f"Task(id: {self.id}, description: {self.description}, status: {self.status.name}, createdAt: {self.createdAt}, updatedAt: {self.updatedAt})"
 
     ### Getters and Setters ###
     @property

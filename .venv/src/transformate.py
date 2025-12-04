@@ -19,3 +19,7 @@ def str_to_tasks(tasks_str):
 def tasks_to_json(tasks):
     tasks_list = [task.to_dict() for task in tasks]
     return json.dumps(tasks_list)
+
+def json_to_tasks(json_data):
+    tasks_str = json_to_str(json_data)
+    return str_to_tasks(tasks_str)
